@@ -1,0 +1,40 @@
+@use '../abstracts/' as *;
+@use 'sass:math';
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+[class*="col-"] {
+    padding: 0 15px;
+}
+
+@for $i from 1 through 12 {
+    $v: math.div($i, 12) * 100;
+    .col-#{$i} {
+        width: $v*1%;
+    }
+}
+
+// medium screen
+
+@include tablet {
+    @for $i from 1 through 12 {
+        $v: math.div($i, 12) * 100;
+        .col-md-#{$i} {
+            width: $v*1%;
+        }
+    }
+}
+
+// small screen
+
+@include mobile {
+    @for $i from 1 through 12 {
+        $v: math.div($i, 12) * 100;
+        .col-sm-#{$i} {
+            width: $v*1%;
+        }
+    }
+}

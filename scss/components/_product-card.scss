@@ -1,0 +1,37 @@
+@use '../abstracts/' as *;
+
+.product-card {
+    cursor: pointer;
+    padding: 20px;
+    position: relative;
+
+    &__name {
+        padding: 20px;
+        font-size: 1.5rem;
+    }
+
+    &__footer {
+        @include flex(center, space-between);
+        padding: 0 20px;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: calc(100% - 4px);
+        height: calc(100% - 4px);
+        border: 2px solid $second-bg;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: -1;
+    }
+
+    &:hover::before {
+        opacity: 1;
+        visibility: visible;
+    }
+}

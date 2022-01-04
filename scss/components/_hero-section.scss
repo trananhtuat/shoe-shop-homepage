@@ -1,0 +1,47 @@
+@use '../abstracts/' as *;
+
+.hero-section {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    position: relative;
+    overflow: hidden;
+
+    @include mobile {
+        height: 70vh;
+    }
+
+    .img-wrapper {
+        width: 100%;
+        max-width: 900px;
+    }
+
+    &__txt {
+        position: absolute;
+        user-select: none;
+
+        &__main {
+            font-size: 20vw;
+            font-weight: 700;
+            color: $second-bg;
+        }
+    }
+
+    span {
+        position: absolute;
+    }
+
+    &__brand {
+        top: calc(#{$header-height} + 50px);
+        font-size: 3rem;
+        font-weight: 700;
+        text-align: center;
+        color: $second-bg;
+    }
+
+    &__btn {
+        position: absolute;
+        bottom: calc(#{$header-height} + 50px);
+        z-index: 99;
+    }
+}

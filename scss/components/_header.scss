@@ -1,0 +1,72 @@
+@use '../abstracts/' as *;
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: transparent;
+    color: $txt-color;
+    transition: all 0.5s ease;
+
+    &.shrink {
+        background-color: $second-bg;
+        box-shadow: $box-shadow;
+
+        .header {
+            height: $header-shrink-height;
+        }
+    }
+}
+
+.header {
+    @include flex(center, space-between);
+    position: relative;
+    height: $header-height;
+    transition: height 0.5s ease;
+
+    &__logo {
+        font-size: 2rem;
+        font-weight: 700;
+        position: absolute;
+        width: 100%;
+        display: grid;
+        place-items: center;
+        pointer-events: none;
+
+        a {
+            pointer-events: visible;
+
+            &:hover {
+                color: unset;
+            }
+        }
+    }
+
+    &__toggle,
+    &__nav {
+        font-size: 2rem;
+    }
+
+    &__toggle {
+        cursor: pointer;
+    }
+
+    &__nav {
+        @include flex(center, flex-end);
+
+        & > * ~ * {
+            margin-left: 1.5rem;
+
+            @include mobile {
+                margin-left: 1rem;
+            }
+        }
+
+        li {
+            cursor: pointer;
+            @include flex(center, center);
+        }
+    }
+}

@@ -1,0 +1,25 @@
+@use '../abstracts/' as *;
+
+footer {
+    padding: 3rem 0;
+    background-color: $second-bg;
+
+    .footer-menu {
+        @include tablet {
+            margin-bottom: 1rem;
+        }
+
+        &__header {
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        &__content {
+            color: $txt-second-color;
+
+            li ~ li {
+                margin-top: 10px;
+            }
+        }
+    }
+}

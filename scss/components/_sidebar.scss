@@ -1,0 +1,57 @@
+@use '../abstracts/' as *;
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: calc(-100% - 50px);
+    width: calc(100% - 50px);
+    height: 100vh;
+    max-width: 500px;
+    background-color: $second-bg;
+    padding: 50px 100px;
+    z-index: 101;
+    transition: left 0.5s ease;
+
+    &.active {
+        left: 0;
+    }
+
+    &__logo {
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 3rem;
+
+        & > a:hover {
+            color: unset;
+        }
+    }
+
+    &__nav {
+        li {
+            margin-bottom: 1.125rem;
+
+            a {
+                @include flex(center, space-between);
+                text-transform: capitalize;
+            }
+        }
+    }
+
+    &__close {
+        --size: 50px;
+        width: var(--size);
+        height: var(--size);
+        @include flex(center, center);
+        position: absolute;
+        top: 0;
+        left: 100%;
+        background-color: $second-bg;
+        font-size: 2rem;
+        cursor: pointer;
+
+        &:hover {
+            color: $main-color;
+        }
+    }
+}

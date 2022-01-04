@@ -1,0 +1,23 @@
+@use '../abstracts/' as *;
+
+.neon-txt {
+    color: $txt-color;
+    animation: flicker 1.5s infinite alternate;
+}
+
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow: 
+            0 0 4px $txt-color,
+            0 0 11px $txt-color,
+            0 0 19px $txt-color,
+            0 0 40px $neon-color,
+            0 0 80px $neon-color,
+            0 0 90px $neon-color,
+            0 0 100px $neon-color,
+            0 0 150px $neon-color;
+    }
+    20%, 24%, 55% {
+        text-shadow: none;
+    }
+}

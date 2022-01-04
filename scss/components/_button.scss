@@ -1,0 +1,53 @@
+@use '../abstracts/' as *;
+
+button {
+    border: 0;
+    outline: 0;
+    background-color: $second-bg;
+    color: $white;
+    font-size: 1rem;
+    font-family: $font-family;
+    padding: 0.5rem 1.8rem;
+    cursor: pointer;
+    text-transform: capitalize;
+
+    &.btn-lg {
+        font-size: 1.5rem;
+    }
+
+    &.btn-neon {
+        transition: box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+
+        &:hover {
+            background-color: $main-color;
+            color: $white;
+            box-shadow: 0 0 10px $main-color, 0 0 40px $main-color, 0 0 80px $main-color;
+        }
+    }
+}
+
+.btn-to-top {
+    button {
+        --size: 50px;
+        width: var(--size);
+        height: var(--size);
+        padding: unset;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        position: fixed;
+        bottom: $header-height;
+        right: 20px;
+        background-color: $white;
+        color: $second-bg;
+        z-index: 99;
+    }
+
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}

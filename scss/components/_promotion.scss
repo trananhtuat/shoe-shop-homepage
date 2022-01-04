@@ -1,0 +1,33 @@
+@use '../abstracts/' as *;
+
+.promotion {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include mobile {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    &__item {
+        position: relative;
+
+        &__info {
+            z-index: 2;
+            position: absolute;
+            top: 50%;
+            left: 50px;
+            transform: translateY(-50%);
+
+            &__title {
+                margin-bottom: 3rem;
+                font-size: 3rem;
+                font-weight: 700;
+
+                span {
+                    font-size: 1.5rem;
+                    font-weight: 300;
+                }
+            }
+        }
+    }
+}
